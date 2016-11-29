@@ -10,17 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const router_1 = require('@angular/router');
-let AppComponent = class AppComponent {
-    constructor(router) {
-        this.router = router;
+const app_user_service_1 = require('./app.user.service');
+let RegistrationService = class RegistrationService {
+    constructor(_router, _userService) {
+        this._router = _router;
+        this._userService = _userService;
+    }
+    registerUser(user) {
+        this._userService.createUser(user);
+        this._router.navigate(['home']);
     }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: '/AngularTemplates/app.component.html'
-    }), 
-    __metadata('design:paramtypes', [router_1.Router])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+RegistrationService = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [router_1.Router, app_user_service_1.UserService])
+], RegistrationService);
+exports.RegistrationService = RegistrationService;
+//# sourceMappingURL=app.registration.service.js.map

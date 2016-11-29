@@ -1,0 +1,35 @@
+﻿<div class="container">
+    <div class="title">
+        Login user
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <label for="email">Email</label>
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.email" id="email"
+                       type="email" class="validate">
+            </div>
+        </div>
+
+        <div class="row">
+            <label for="password">Password</label>
+            <div class="input-field col s12">
+                <input [(ngModel)]="user.password" id="password"
+                       type="password" class="validate">
+            </div>
+        </div>
+
+        <span>{{errorMsg}}</span>
+        <div style="margin-top: 10px">
+            <button (click)="login()"
+                    class="btn waves-effect waves-light"
+                    type="submit" name="action">
+                Login
+            </button>
+        </div>
+        <nav>
+            <a routerLink="/social-login" href="/social-login"> Login with social networks </a>
+            <a routerLink="/register" href="/register">Go to registration </a>
+        </nav>
+    </div>
+</div>

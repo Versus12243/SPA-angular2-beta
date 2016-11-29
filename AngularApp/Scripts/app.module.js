@@ -12,11 +12,12 @@ const core_1 = require('@angular/core');
 const app_component_1 = require('./app.component');
 const platform_browser_1 = require('@angular/platform-browser');
 const forms_1 = require('@angular/forms');
-const login_component_1 = require('./login.component');
-const private_component_1 = require('./private.component');
+const app_login_component_1 = require('./app.login.component');
+const app_private_component_1 = require('./app.private.component');
 const router_1 = require('@angular/router');
 const app_routes_1 = require('./app.routes');
 const app_social_login_component_1 = require('./app.social.login.component');
+const app_registration_component_1 = require('./app.registration.component');
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -30,9 +31,10 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent,
-            private_component_1.PrivateComponent,
-            login_component_1.LoginComponent,
-            app_social_login_component_1.SocialLoginComponent
+            app_private_component_1.PrivateComponent,
+            app_login_component_1.LoginComponent,
+            app_social_login_component_1.SocialLoginComponent,
+            app_registration_component_1.RegistrationComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     }), 

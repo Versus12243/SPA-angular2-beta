@@ -1,18 +1,12 @@
 ﻿import {Component, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from './authentication.service'
+import {User} from './app.user.service'
 
 declare var gapi: any;
 
 @Component({
     selector: 'login-form',
-    template: `
-        <div class="container">
-                <span>{{errorMsg}}</span> 
-                <div id="google-login-button" class="g-signin2">
-                </div>           
-        </div>
-    	`
+    templateUrl: '/AngularTemplates/app.social.login.component.html'
 })
 
 export class SocialLoginComponent {   
@@ -21,7 +15,7 @@ export class SocialLoginComponent {
 
     googleLoginButtonId = "google-login-button";
 
-    constructor(private _zone: NgZone) { }
+    constructor(private _zone: NgZone, private _router: Router) { }
 
     ngAfterViewInit() {
         // Converts the Google login button stub to an actual button. 
@@ -45,6 +39,7 @@ export class SocialLoginComponent {
             // Store token in local storage for authentication 
             var user = new User(email, auth_token);
             localStorage.setItem("user", JSON.stringify(user));
+            this._router.navigate(['home']);
         });
     }
 

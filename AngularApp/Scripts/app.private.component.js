@@ -9,18 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-let AppComponent = class AppComponent {
-    constructor(router) {
-        this.router = router;
+const app_authentication_service_1 = require('./app.authentication.service');
+const app_user_service_1 = require('./app.user.service');
+let PrivateComponent = class PrivateComponent {
+    constructor(_service) {
+        this._service = _service;
+    }
+    ngOnInit() {
+        this._service.checkCredentials();
+    }
+    logout() {
+        this._service.logout();
     }
 };
-AppComponent = __decorate([
+PrivateComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        templateUrl: '/AngularTemplates/app.component.html'
+        selector: 'login-form',
+        providers: [app_authentication_service_1.AuthenticationService, app_user_service_1.UserService],
+        templateUrl: '/AngularTemplates/app.private.component.html'
     }), 
-    __metadata('design:paramtypes', [router_1.Router])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata('design:paramtypes', [app_authentication_service_1.AuthenticationService])
+], PrivateComponent);
+exports.PrivateComponent = PrivateComponent;
+//# sourceMappingURL=app.private.component.js.map
